@@ -16,11 +16,11 @@ class WpPopPop_Pro_Plugin {
         add_action('admin_notices', array(__CLASS__, 'notices'));
         add_action('after_plugin_row_' . WPPOPPOP_PRO_BASENAME, array(__CLASS__, 'plugin_row_notice'));
         add_action('admin_head-plugins.php', array(__CLASS__, 'plugin_row_css'));
-        WpPopPop_Pro_License::hooks();
-        WpPopPop_Pro_Updater::hooks();
+        add_action('admin_init', array('WpPopPop_Pro_Uninstall', 'register'));
         require_once WPPOPPOP_PRO_PATH . 'includes/class-pro-db.php';
         WpPopPop_Pro_DB::hooks();
-        register_activation_hook(WPPOPPOP_PRO_FILE, array('WpPopPop_Pro_DB', 'install'));
+        WpPopPop_Pro_Multisite::hooks();
+        register_activation_hook(WPPOPPOP_PRO_FILE, array('WpPopPop_Pro_Multisite', 'activate'));
         register_deactivation_hook(WPPOPPOP_PRO_FILE, array(__CLASS__, 'deactivate'));
 
         /* Core reads these while it boots (before wppoppop_loaded fires), so they are attached right away. */
@@ -29,9 +29,8 @@ class WpPopPop_Pro_Plugin {
         add_filter('wppoppop_preset_roots', array(__CLASS__, 'preset_roots'));
     }
 
-    public static function deactivate() {
-        wp_clear_scheduled_hook('wppoppop_tracking_daily');
-        wp_clear_scheduled_hook('wppoppop_weekly_report');
+    public static function deactivate($network_wide = false) {
+        WpPopPop_Pro_Multisite::deactivate($network_wide);
     }
 
     public static function load_textdomain() {
@@ -165,7 +164,7 @@ class WpPopPop_Pro_Plugin {
             printf(
                 '<div class="notice notice-warning"><p>%s <a href="%s">%s</a></p></div>',
                 esc_html__('WpPopPop Pro is not activated. Pro templates and modules stay locked until you enter your licence key.', 'wppoppop-pro'),
-                esc_url(admin_url('admin.php?page=wppoppop-license')),
+                esc_url(WpPopPop_Pro_License::activate_url()),
                 esc_html__('Activate licence', 'wppoppop-pro')
             );
         }

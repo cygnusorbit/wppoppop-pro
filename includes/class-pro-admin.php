@@ -4,20 +4,23 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Licence page (WpPopPop > License). Reuses core's admin bar, theme variables and card look.
+ * License sub-page (WpPopPop > License). Once Freemius is configured the SDK shows its own activation screen on this
+ * page and, after activation, its Account page. Until then the page explains how to switch licensing on.
+ * Reuses core's admin bar, theme variables and card look.
  */
 class WpPopPop_Pro_Admin {
 
-    const PAGE   = 'wppoppop-license';
-    const ACTION = 'wppoppop_pro_license';
+    const PAGE = 'wppoppop-license';
 
     public static function hooks() {
         add_action('wppoppop_admin_menu', array(__CLASS__, 'menu'));
-        add_action('admin_post_' . self::ACTION, array(__CLASS__, 'handle'));
         add_action('admin_enqueue_scripts', array(__CLASS__, 'assets'));
     }
 
     public static function menu($parent) {
+        if (WpPopPop_Pro_Freemius::is_configured() && !WpPopPop_Pro_Freemius::in_activation_mode()) {
+            return;
+        }
         add_submenu_page($parent, __('License', 'wppoppop-pro'), __('License', 'wppoppop-pro'), 'manage_options', self::PAGE, array(__CLASS__, 'render'));
     }
 
@@ -39,36 +42,9 @@ class WpPopPop_Pro_Admin {
         wp_enqueue_script('wppoppop-overview-js', WPPOPPOP_URL . 'admin/js/overview.js', array('jquery'), WPPOPPOP_VERSION, true);
     }
 
-    public static function handle() {
-        if (!current_user_can('manage_options')) {
-            wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wppoppop-pro'));
-        }
-        check_admin_referer(self::ACTION, 'wppoppop_pro_nonce');
-
-        $op = isset($_POST['wpp_license_op']) ? sanitize_key(wp_unslash($_POST['wpp_license_op'])) : '';
-        $r  = array('ok' => false, 'message' => '');
-        if ($op === 'activate') {
-            $key = isset($_POST['wpp_license_key']) ? sanitize_text_field(wp_unslash($_POST['wpp_license_key'])) : '';
-            $r   = WpPopPop_Pro_License::activate($key);
-        } elseif ($op === 'deactivate') {
-            $r = WpPopPop_Pro_License::deactivate();
-        } elseif ($op === 'check') {
-            $r = WpPopPop_Pro_License::check();
-        }
-        set_transient('wppoppop_pro_msg_' . get_current_user_id(), $r, 60);
-        wp_safe_redirect(add_query_arg('wpp_status', $r['ok'] ? 'ok' : 'error', admin_url('admin.php?page=' . self::PAGE)));
-        exit;
-    }
-
     public static function render() {
         if (!current_user_can('manage_options')) {
             wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wppoppop-pro'));
-        }
-        $notice = null;
-        if (isset($_GET['wpp_status'])) {
-            $tk     = 'wppoppop_pro_msg_' . get_current_user_id();
-            $notice = get_transient($tk);
-            delete_transient($tk);
         }
         include WPPOPPOP_PRO_PATH . 'templates/license-page.php';
     }
