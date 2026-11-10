@@ -3,7 +3,7 @@
  * Plugin Name: WpPopPop Pro
  * Plugin URI: https://github.com/cygnusorbit/wppoppop
  * Description: Pro add-on for WpPopPop: extra builder elements, modules, templates, A/B Campaigns and Statistics.
- * Version: 1.0.004
+ * Version: 1.0.005
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: cygnusorbit
@@ -20,7 +20,7 @@ if (defined('WPPOPPOP_PRO_VERSION')) {
     return;
 }
 
-define('WPPOPPOP_PRO_VERSION', '1.0.004');
+define('WPPOPPOP_PRO_VERSION', '1.0.005');
 define('WPPOPPOP_PRO_FILE', __FILE__);
 define('WPPOPPOP_PRO_PATH', plugin_dir_path(__FILE__));
 define('WPPOPPOP_PRO_URL', plugin_dir_url(__FILE__));

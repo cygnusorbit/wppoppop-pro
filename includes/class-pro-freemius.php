@@ -45,7 +45,7 @@ class WpPopPop_Pro_Freemius {
                 'slug'        => 'wppoppop-license',
                 'parent'      => array('slug' => is_network_admin() ? 'wppoppop-network' : 'wppoppop-dashboard'),
                 'network'     => true,
-                'first-path'  => 'admin.php?page=wppoppop-license',
+                'first-path'  => 'admin.php?page=wppoppop-license-account',
                 'account'     => true,
                 'contact'     => false,
                 'support'     => false,
