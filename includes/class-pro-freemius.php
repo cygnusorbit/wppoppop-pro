@@ -22,10 +22,16 @@ class WpPopPop_Pro_Freemius {
         if (self::$fs !== null || !self::is_configured()) {
             return self::$fs;
         }
+        /* Multisite integration: the SDK reads this constant before it starts. */
+        $fs_multisite = 'WP_FS__PRODUCT_' . (int) WPPOPPOP_PRO_FS_ID . '_MULTISITE';
+        if (!defined($fs_multisite)) {
+            define($fs_multisite, true);
+        }
         require_once WPPOPPOP_PRO_PATH . 'includes/freemius/start.php';
         self::$fs = fs_dynamic_init(array(
             'id'                  => (string) (int) WPPOPPOP_PRO_FS_ID,
             'slug'                => WPPOPPOP_PRO_FS_SLUG,
+            'premium_slug'        => defined('WPPOPPOP_PRO_FS_PREMIUM_SLUG') ? WPPOPPOP_PRO_FS_PREMIUM_SLUG : 'wppoppop-pro',
             'type'                => 'plugin',
             'public_key'          => WPPOPPOP_PRO_FS_KEY,
             'is_premium'          => true,
@@ -37,7 +43,8 @@ class WpPopPop_Pro_Freemius {
             /* Pro's own sub-page under core's menu, so the SDK never takes over core's top-level menu or hides its pages. */
             'menu'                => array(
                 'slug'        => 'wppoppop-license',
-                'parent'      => array('slug' => 'wppoppop-dashboard'),
+                'parent'      => array('slug' => is_network_admin() ? 'wppoppop-network' : 'wppoppop-dashboard'),
+                'network'     => true,
                 'first-path'  => 'admin.php?page=wppoppop-license',
                 'account'     => true,
                 'contact'     => false,

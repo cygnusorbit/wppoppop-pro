@@ -14,6 +14,7 @@ class WpPopPop_Pro_Admin {
 
     public static function hooks() {
         add_action('wppoppop_admin_menu', array(__CLASS__, 'menu'));
+        add_action('network_admin_menu', array(__CLASS__, 'network_menu'), 20);
         add_action('admin_enqueue_scripts', array(__CLASS__, 'assets'));
     }
 
@@ -22,6 +23,24 @@ class WpPopPop_Pro_Admin {
             return;
         }
         add_submenu_page($parent, __('License', 'wppoppop-pro'), __('License', 'wppoppop-pro'), 'manage_options', self::PAGE, array(__CLASS__, 'render'));
+    }
+
+    /** Network admin: same License sub-page under core's network page, so the SDK can take it over. */
+    public static function network_menu() {
+        if (!class_exists('WpPopPop_Multisite') || !WpPopPop_Multisite::network_active()) {
+            return;
+        }
+        if (WpPopPop_Pro_Freemius::is_configured() && !WpPopPop_Pro_Freemius::in_activation_mode()) {
+            return;
+        }
+        add_submenu_page('wppoppop-network', __('License', 'wppoppop-pro'), __('License', 'wppoppop-pro'), 'manage_network_options', self::PAGE, array(__CLASS__, 'render_network'));
+    }
+
+    public static function render_network() {
+        if (!current_user_can('manage_network_options')) {
+            wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wppoppop-pro'));
+        }
+        include WPPOPPOP_PRO_PATH . 'templates/license-page.php';
     }
 
     public static function assets($hook) {

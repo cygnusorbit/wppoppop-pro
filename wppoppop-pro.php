@@ -3,7 +3,7 @@
  * Plugin Name: WpPopPop Pro
  * Plugin URI: https://github.com/cygnusorbit/wppoppop
  * Description: Pro add-on for WpPopPop: extra builder elements, modules, templates, A/B Campaigns and Statistics.
- * Version: 1.0.003
+ * Version: 1.0.004
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: cygnusorbit
@@ -20,7 +20,7 @@ if (defined('WPPOPPOP_PRO_VERSION')) {
     return;
 }
 
-define('WPPOPPOP_PRO_VERSION', '1.0.003');
+define('WPPOPPOP_PRO_VERSION', '1.0.004');
 define('WPPOPPOP_PRO_FILE', __FILE__);
 define('WPPOPPOP_PRO_PATH', plugin_dir_path(__FILE__));
 define('WPPOPPOP_PRO_URL', plugin_dir_url(__FILE__));
@@ -44,13 +44,17 @@ define('WPPOPPOP_PRO_MIN_CORE', '3.0.914');
  * ================================================================================
  */
 if (!defined('WPPOPPOP_PRO_FS_ID')) {
-    define('WPPOPPOP_PRO_FS_ID', 0);
+    define('WPPOPPOP_PRO_FS_ID', 44381);
 }
 if (!defined('WPPOPPOP_PRO_FS_KEY')) {
-    define('WPPOPPOP_PRO_FS_KEY', '');
+    define('WPPOPPOP_PRO_FS_KEY', 'pk_1174cea747c3de41d93b1c6448cf9');
 }
 if (!defined('WPPOPPOP_PRO_FS_SLUG')) {
-    define('WPPOPPOP_PRO_FS_SLUG', 'wppoppop-pro');
+    define('WPPOPPOP_PRO_FS_SLUG', 'wppoppop');
+}
+if (!defined('WPPOPPOP_PRO_FS_PREMIUM_SLUG')) {
+    /* Folder name of this plugin, as set in Freemius. */
+    define('WPPOPPOP_PRO_FS_PREMIUM_SLUG', 'wppoppop-pro');
 }
 
 require_once WPPOPPOP_PRO_PATH . 'includes/class-pro-freemius.php';
@@ -85,4 +89,11 @@ require_once WPPOPPOP_PRO_PATH . 'includes/class-pro-admin.php';
 require_once WPPOPPOP_PRO_PATH . 'includes/class-pro-plugin.php';
 
 WpPopPop_Pro_Freemius::init();
+
+if (!function_exists('wpp_pro')) {
+    /* Helper for the Freemius SDK instance, as used in the Freemius documentation. */
+    function wpp_pro() {
+        return WpPopPop_Pro_Freemius::fs();
+    }
+}
 WpPopPop_Pro_Plugin::boot();
