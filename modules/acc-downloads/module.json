@@ -1,0 +1,22 @@
+{
+    "schema": 1,
+    "slug": "acc-downloads",
+    "name": "Downloads",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Give subscribers a protected, single-use download link after they submit.",
+    "category": "all-modules",
+    "default_active": false,
+    "order": 70,
+    "on_missing": "skip",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "downloads"
+    ],
+    "in_use": [
+        "downloads.enable"
+    ],
+    "min_version": "",
+    "deprecated": false
+}

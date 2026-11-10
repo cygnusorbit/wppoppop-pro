@@ -1,0 +1,306 @@
+{
+    "template": {
+        "title": "Video Popup",
+        "description": "",
+        "category": "custom",
+        "download": false,
+        "image": "images/Screenshot-2026-11-08-at-20.25.17.png",
+        "assets": [
+            "images/Screenshot-2026-11-08-at-20.25.17.png"
+        ]
+    },
+    "data": {
+        "title": "Video Popup",
+        "canvases": {
+            "1": [
+                {
+                    "id": "layer_mw271rgq_am6r",
+                    "type": "video",
+                    "name": "VIDEO 1",
+                    "top": 0,
+                    "left": 0,
+                    "width": 640,
+                    "height": 400,
+                    "zIndex": 10,
+                    "sizePresetApplied": false,
+                    "borderRadius": 0,
+                    "opacity": 1,
+                    "fontSize": 14,
+                    "fontWeight": "400",
+                    "lineHeight": 1.4,
+                    "letterSpacing": 0,
+                    "textAlign": "left",
+                    "padding": 0,
+                    "animation": "none",
+                    "content": "",
+                    "goto_canvas": 2,
+                    "goto_screen": 2,
+                    "locked": false,
+                    "hidden": false,
+                    "custom_settings": {},
+                    "videoUrl": "https://www.youtube.com/watch?v=0n5A1TAI-GY",
+                    "videoAutoplay": true,
+                    "videoMute": true,
+                    "videoControls": false,
+                    "autoplay": true,
+                    "w": 640,
+                    "h": 400,
+                    "videoProvider": "youtube",
+                    "aspectRatio": "16:9",
+                    "videoThumb": "",
+                    "videoLoop": false,
+                    "animIn": "none",
+                    "animOut": "none",
+                    "animDuration": 1000,
+                    "animDelay": 0,
+                    "anim_appearance": "none",
+                    "animEffect": "none",
+                    "anim_effect": "none",
+                    "anim_disappearance": "none",
+                    "anim_duration": 1000,
+                    "anim_delay": 0,
+                    "inlineStyles": [],
+                    "logicEnabled": false,
+                    "logicAction": "show",
+                    "logicMatch": "all",
+                    "logicRules": [],
+                    "mute": true
+                }
+            ],
+            "2": []
+        },
+        "screens": {
+            "1": [
+                {
+                    "id": "layer_mw271rgq_am6r",
+                    "type": "video",
+                    "name": "VIDEO 1",
+                    "top": 0,
+                    "left": 0,
+                    "width": 640,
+                    "height": 400,
+                    "zIndex": 10,
+                    "sizePresetApplied": false,
+                    "borderRadius": 0,
+                    "opacity": 1,
+                    "fontSize": 14,
+                    "fontWeight": "400",
+                    "lineHeight": 1.4,
+                    "letterSpacing": 0,
+                    "textAlign": "left",
+                    "padding": 0,
+                    "animation": "none",
+                    "content": "",
+                    "goto_canvas": 2,
+                    "goto_screen": 2,
+                    "locked": false,
+                    "hidden": false,
+                    "custom_settings": {},
+                    "videoUrl": "https://www.youtube.com/watch?v=0n5A1TAI-GY",
+                    "videoAutoplay": true,
+                    "videoMute": true,
+                    "videoControls": false,
+                    "autoplay": true,
+                    "w": 640,
+                    "h": 400,
+                    "videoProvider": "youtube",
+                    "aspectRatio": "16:9",
+                    "videoThumb": "",
+                    "videoLoop": false,
+                    "animIn": "none",
+                    "animOut": "none",
+                    "animDuration": 1000,
+                    "animDelay": 0,
+                    "anim_appearance": "none",
+                    "animEffect": "none",
+                    "anim_effect": "none",
+                    "anim_disappearance": "none",
+                    "anim_duration": 1000,
+                    "anim_delay": 0,
+                    "inlineStyles": [],
+                    "logicEnabled": false,
+                    "logicAction": "show",
+                    "logicMatch": "all",
+                    "logicRules": [],
+                    "mute": true
+                }
+            ],
+            "2": []
+        },
+        "canvasMeta": {
+            "1": {
+                "name": "Canvas 1",
+                "width": 640,
+                "height": 400,
+                "bg_mode": "solid",
+                "bg_color": "#ffffff",
+                "grad_color1": "#3b82f6",
+                "grad_color2": "#1d4ed8",
+                "grad_angle": 135,
+                "anim_appearance": "fadeIn",
+                "anim_duration": 1000,
+                "anim_delay": 0,
+                "anim_disappearance": "none",
+                "anim_exit_enabled": false,
+                "logic_enabled": false,
+                "canvas_radius": 5,
+                "close_btn_enabled": true,
+                "autoclose": 0,
+                "autoclose_delay": 0
+            },
+            "2": {
+                "name": "Confirmation",
+                "width": 300,
+                "height": 400,
+                "bg_mode": "solid",
+                "bg_color": "#ffffff",
+                "grad_color1": "#3b82f6",
+                "grad_color2": "#1d4ed8",
+                "grad_angle": 135,
+                "anim_appearance": "fadeIn",
+                "anim_duration": 1000,
+                "anim_delay": 0,
+                "anim_disappearance": "none",
+                "anim_exit_enabled": false,
+                "logic_enabled": false
+            }
+        },
+        "canvas_meta": {
+            "1": {
+                "name": "Canvas 1",
+                "width": 640,
+                "height": 400,
+                "bg_mode": "solid",
+                "bg_color": "#ffffff",
+                "grad_color1": "#3b82f6",
+                "grad_color2": "#1d4ed8",
+                "grad_angle": 135,
+                "anim_appearance": "fadeIn",
+                "anim_duration": 1000,
+                "anim_delay": 0,
+                "anim_disappearance": "none",
+                "anim_exit_enabled": false,
+                "logic_enabled": false,
+                "canvas_radius": 5,
+                "close_btn_enabled": true,
+                "autoclose": 0,
+                "autoclose_delay": 0
+            },
+            "2": {
+                "name": "Confirmation",
+                "width": 300,
+                "height": 400,
+                "bg_mode": "solid",
+                "bg_color": "#ffffff",
+                "grad_color1": "#3b82f6",
+                "grad_color2": "#1d4ed8",
+                "grad_angle": 135,
+                "anim_appearance": "fadeIn",
+                "anim_duration": 1000,
+                "anim_delay": 0,
+                "anim_disappearance": "none",
+                "anim_exit_enabled": false,
+                "logic_enabled": false
+            }
+        },
+        "settings": {
+            "box": {
+                "width": 640,
+                "height": 400
+            },
+            "close_on_backdrop": false,
+            "animation": {
+                "appearance": "fadeIn",
+                "duration": 1000,
+                "delay": 0,
+                "disappearance": "none"
+            },
+            "sidetab": {
+                "enable": false,
+                "label": "",
+                "pos": "left",
+                "icon": "",
+                "bg": "#c2185b",
+                "radius": 6,
+                "anim": "slide"
+            },
+            "autoresponder": {
+                "enable": false,
+                "subject": "",
+                "body": ""
+            },
+            "overlay": {
+                "opacity": 65,
+                "color": "#0f172a",
+                "enabled": true,
+                "selected": "",
+                "backgrounds": []
+            },
+            "double_optin": {
+                "enable": false,
+                "recipient": "",
+                "subject": "Please confirm your email address",
+                "message": "Dear visitor!\n\nPlease confirm your email address by clicking the following link:\n<a href=\"{{confirmation-url}}\">{{confirmation-url}}</a>\n\nThanks.",
+                "from_email": "{{global-from-email}}",
+                "from_name": "{{global-from-name}}",
+                "thank_message": "<h4 style=\"text-align: center;\">Thank you!</h4><p style=\"text-align: center;\">Your email address successfully confirmed.</p>",
+                "thank_url": ""
+            },
+            "notifications": [],
+            "celebration": {
+                "effect": "default"
+            },
+            "popup_position": {
+                "position": "center",
+                "top": 50,
+                "right": 50,
+                "bottom": 50,
+                "left": 50
+            },
+            "targeting_triggers": {
+                "enabled": true,
+                "event": "",
+                "mode": "every-time",
+                "period_hours": 24,
+                "start_delay": 0,
+                "close_delay": 0,
+                "scroll_offset": 600,
+                "scroll_unit": "px",
+                "idle_delay": 15,
+                "activity": "always",
+                "from": "",
+                "to": "",
+                "roles": [
+                    "all"
+                ],
+                "area": "sitewide",
+                "cats_all": true,
+                "cats": [],
+                "cats_archive": false,
+                "tags_all": true,
+                "tags": [],
+                "tags_archive": false,
+                "posts_all": true,
+                "posts": [],
+                "pages_all": true,
+                "pages": [],
+                "url_keywords": ""
+            },
+            "mailchimp": [],
+            "getresponse": [],
+            "webhooks": {
+                "url": "",
+                "secret": ""
+            },
+            "woocommerce": {
+                "coupon": false,
+                "amount": "",
+                "days": ""
+            },
+            "downloads": {
+                "enable": false,
+                "url": ""
+            }
+        }
+    }
+}

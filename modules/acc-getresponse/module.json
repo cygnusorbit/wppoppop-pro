@@ -1,0 +1,22 @@
+{
+    "schema": 1,
+    "slug": "acc-getresponse",
+    "name": "GetResponse",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Add form submissions to GetResponse campaigns: custom field mapping and conditional logic.",
+    "category": "all-modules",
+    "default_active": true,
+    "order": 240,
+    "on_missing": "skip",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "getresponse"
+    ],
+    "in_use": [
+        "getresponse"
+    ],
+    "min_version": "",
+    "deprecated": false
+}

@@ -1,0 +1,39 @@
+<div class="wppoppop-sp-root">
+    <p class="description wppoppop-sp-intro">Control what is stored with each submission, protect the form against repeated submissions and tune the page behaviour while the popup is visible.</p>
+
+    <div class="wppoppop-sp-group">
+        <div class="wppoppop-sp-gt">Technical info</div>
+        <label class="wppoppop-sp-switch"><span class="wppoppop-sp-swl">Save IP-address</span><input type="checkbox" id="set-sp-save-ip" value="1"><span class="wppoppop-sp-trk"></span></label>
+        <label class="wppoppop-sp-switch"><span class="wppoppop-sp-swl">Save User-Agent</span><input type="checkbox" id="set-sp-save-ua" value="1"><span class="wppoppop-sp-trk"></span></label>
+        <label class="wppoppop-sp-switch"><span class="wppoppop-sp-swl">Send Technical Info by email</span><input type="checkbox" id="set-sp-email-tech" value="1"><span class="wppoppop-sp-trk"></span></label>
+        <label class="wppoppop-sp-switch"><span class="wppoppop-sp-swl">Show Technical Info on log record details</span><input type="checkbox" id="set-sp-record-tech" value="1"><span class="wppoppop-sp-trk"></span></label>
+        <p class="wppoppop-sp-help">Technical info is the IP-address and the User-Agent. The email option adds it to the {{form-data}} merge tag.</p>
+    </div>
+
+    <div class="wppoppop-sp-group">
+        <div class="wppoppop-sp-gt">Page</div>
+        <label class="wppoppop-sp-switch"><span class="wppoppop-sp-swl">Disable page scrollbar</span><input type="checkbox" id="set-sp-disable-scroll" value="1"><span class="wppoppop-sp-trk"></span></label>
+        <p class="wppoppop-sp-help">Locks the page scrollbar while this popup is visible.</p>
+    </div>
+
+    <div class="wppoppop-sp-group">
+        <div class="wppoppop-sp-gt">Personal data key fields</div>
+        <div class="wppoppop-sp-chips" id="wppoppop-sp-keys"></div>
+        <select id="wppoppop-sp-key-add" class="widefat" title="Add a personal data key field"></select>
+        <p class="wppoppop-sp-help">Fields that hold the personal data key, usually the email field. WordPress uses them to find, export and erase a person's submissions (Tools &gt; Export / Erase Personal Data).</p>
+    </div>
+
+    <div class="wppoppop-sp-group">
+        <div class="wppoppop-sp-gt">Antibot protection</div>
+        <label class="wppoppop-sp-switch"><span class="wppoppop-sp-swl">Enable protection against repeated submissions</span><input type="checkbox" id="set-sp-antibot" value="1"><span class="wppoppop-sp-trk"></span></label>
+        <div class="wppoppop-sp-ab" id="wppoppop-sp-ab">
+            <label class="wppoppop-sp-lbl" for="set-sp-delay">Repeated submission delay</label>
+            <div class="wppoppop-sp-unit"><input type="number" id="set-sp-delay" min="1" max="3600" step="1" value="10"><span>seconds</span></div>
+            <label class="wppoppop-sp-switch"><span class="wppoppop-sp-swl">Check form data</span><input type="checkbox" id="set-sp-ab-form" value="1"><span class="wppoppop-sp-trk"></span></label>
+            <label class="wppoppop-sp-switch"><span class="wppoppop-sp-swl">Check IP-address</span><input type="checkbox" id="set-sp-ab-ip" value="1"><span class="wppoppop-sp-trk"></span></label>
+            <label class="wppoppop-sp-lbl" for="set-sp-ab-error">Error message</label>
+            <input type="text" id="set-sp-ab-error" class="widefat" maxlength="200" placeholder="Thank you. We have already got your request.">
+            <p class="wppoppop-sp-help">The same data (and / or the same IP-address) is refused during the delay and the visitor sees the error message.</p>
+        </div>
+    </div>
+</div>

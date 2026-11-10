@@ -1,0 +1,20 @@
+{
+    "schema": 1,
+    "slug": "acc-popup-positions",
+    "name": "Popup Positions",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Popup position on screen: top, bottom, left or right.",
+    "category": "all-modules",
+    "default_active": true,
+    "order": 210,
+    "on_missing": "skip",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "popup_position"
+    ],
+    "in_use": [],
+    "min_version": "",
+    "deprecated": false
+}

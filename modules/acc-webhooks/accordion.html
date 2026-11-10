@@ -1,0 +1,7 @@
+<div class="wppoppop-wh-root">
+    <label class="wppoppop-wh-lbl" for="set-webhook-url">Webhook URL (POST)</label>
+    <input type="url" id="set-webhook-url" placeholder="https://..." class="widefat" maxlength="2000">
+    <label class="wppoppop-wh-lbl" for="set-webhook-secret">HMAC Secret Key</label>
+    <input type="text" id="set-webhook-secret" placeholder="Optional signing secret" class="widefat" maxlength="200">
+    <p class="description wppoppop-wh-help">Every new submission is sent as JSON to this URL. With a secret, the X-WpPopPop-Signature header carries the HMAC-SHA256 of the request body. Leave the URL empty to switch the webhook off.</p>
+</div>

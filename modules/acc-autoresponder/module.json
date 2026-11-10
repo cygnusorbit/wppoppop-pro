@@ -1,0 +1,22 @@
+{
+    "schema": 1,
+    "slug": "acc-autoresponder",
+    "name": "Autoresponder",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Automatic reply sent to subscribers after they submit.",
+    "category": "all-modules",
+    "default_active": true,
+    "order": 90,
+    "on_missing": "block",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "autoresponder"
+    ],
+    "in_use": [
+        "autoresponder.enable"
+    ],
+    "min_version": "",
+    "deprecated": false
+}

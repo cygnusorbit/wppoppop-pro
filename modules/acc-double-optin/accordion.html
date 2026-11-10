@@ -1,0 +1,38 @@
+<div class="wppoppop-dopt-root">
+    <label class="wppoppop-dopt-check"><input type="checkbox" id="set-dopt-enable" value="1"> Enable Double Opt-In</label>
+    <p class="description wppoppop-dopt-intro">Leads stay "pending" until the visitor clicks the confirmation link.</p>
+
+    <div class="wppoppop-dopt-field">
+        <div class="wppoppop-dopt-lblrow wppoppop-dopt-hastag"><label for="set-dopt-recipient">Recipient</label></div>
+        <input type="text" id="set-dopt-recipient" class="widefat" placeholder="Empty = the visitor email">
+    </div>
+
+    <div class="wppoppop-dopt-field">
+        <div class="wppoppop-dopt-lblrow wppoppop-dopt-hastag"><label for="set-dopt-subject">Subject</label></div>
+        <input type="text" id="set-dopt-subject" class="widefat" value="Please confirm your email address">
+    </div>
+
+    <div class="wppoppop-dopt-field">
+        <div class="wppoppop-dopt-lblrow wppoppop-dopt-hastag"><label for="set-dopt-message">Message</label></div>
+        <textarea id="set-dopt-message" rows="6" class="widefat"></textarea>
+    </div>
+
+    <div class="wppoppop-dopt-field">
+        <div class="wppoppop-dopt-lblrow"><label for="set-dopt-from-email">From</label></div>
+        <div class="wppoppop-dopt-from">
+            <input type="text" id="set-dopt-from-email" class="widefat" value="{{global-from-email}}" placeholder="email">
+            <input type="text" id="set-dopt-from-name" class="widefat" value="{{global-from-name}}" placeholder="name">
+        </div>
+    </div>
+
+    <div class="wppoppop-dopt-field">
+        <div class="wppoppop-dopt-lblrow wppoppop-dopt-hastag"><label for="set-dopt-thank-message">Thank-you message</label></div>
+        <textarea id="set-dopt-thank-message" rows="4" class="widefat"></textarea>
+    </div>
+
+    <div class="wppoppop-dopt-field wppoppop-dopt-field-last">
+        <div class="wppoppop-dopt-lblrow"><label for="set-dopt-thank-url">Thank-you URL</label></div>
+        <input type="url" id="set-dopt-thank-url" class="widefat" placeholder="https://">
+        <p class="description wppoppop-dopt-help">If set, the visitor is redirected here after confirming (instead of the message).</p>
+    </div>
+</div>

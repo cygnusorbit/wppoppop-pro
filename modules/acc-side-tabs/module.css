@@ -1,0 +1,25 @@
+.wppoppop-st-root .wppoppop-st-enable{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #e2e8f0;}
+.wppoppop-st-root .wppoppop-st-enable-label{font-size:11px;font-weight:700;color:#475569;margin:0;text-transform:uppercase;cursor:pointer;}
+.wppoppop-st-root .wppoppop-st-sw{position:relative;display:inline-block;width:40px;height:22px;flex:0 0 40px;}
+.wppoppop-st-root .wppoppop-st-sw input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer;z-index:2;}
+.wppoppop-st-root .wppoppop-st-track{position:absolute;top:0;right:0;bottom:0;left:0;background:#94a3b8;border-radius:22px;-webkit-transition:background .18s ease;transition:background .18s ease;}
+.wppoppop-st-root .wppoppop-st-track:before{content:"";position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;-webkit-transition:-webkit-transform .18s ease;transition:transform .18s ease;}
+.wppoppop-st-root .wppoppop-st-sw input:checked + .wppoppop-st-track{background:#2563eb;}
+.wppoppop-st-root .wppoppop-st-sw input:checked + .wppoppop-st-track:before{-webkit-transform:translateX(18px);transform:translateX(18px);}
+.wppoppop-st-root .wppoppop-st-sw input:focus + .wppoppop-st-track{box-shadow:0 0 0 2px rgba(37,99,235,.45);}
+.wppoppop-st-root .wppoppop-st-lbl{display:block;font-size:11px;font-weight:700;color:#475569;text-transform:uppercase;margin:0 0 4px;}
+.wppoppop-st-root .wppoppop-st-row{display:flex;align-items:center;gap:6px;margin:0 0 12px;}
+.wppoppop-st-root .wppoppop-st-iconslot{display:inline-flex;align-items:center;gap:2px;flex:0 0 auto;}
+.wppoppop-st-root .wppoppop-st-row input.widefat{-webkit-box-flex:1;flex:1;min-width:0;margin:0;}
+.wppoppop-st-root .wppoppop-st-iconbtn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:30px;padding:0;border:1px solid #cbd5e1;border-radius:4px;background:#fff;color:#475569;font-size:14px;cursor:pointer;}
+.wppoppop-st-root .wppoppop-st-iconbtn:hover,.wppoppop-st-root .wppoppop-st-iconbtn:focus{border-color:#2563eb;color:#2563eb;outline:0;}
+.wppoppop-st-root .wppoppop-st-iconclr{display:none;width:18px;height:30px;padding:0;border:0;background:transparent;color:#94a3b8;font-size:16px;line-height:1;cursor:pointer;}
+.wppoppop-st-root .wppoppop-st-iconclr:hover{color:#dc2626;}
+.wppoppop-st-root .wppoppop-st-iconslot.has-icon .wppoppop-st-iconclr{display:inline-block;}
+.wppoppop-st-root .wppoppop-st-color-row,.wppoppop-st-root .wppoppop-st-range-row{display:flex;align-items:center;gap:12px;margin:0 0 12px;}
+.wppoppop-st-root .wppoppop-st-color-row input[type="color"]{width:44px;height:30px;padding:0;border:1px solid #cbd5e1;border-radius:4px;background:#fff;cursor:pointer;}
+.wppoppop-st-root .wppoppop-st-range-row input[type="range"]{-webkit-box-flex:1;flex:1;min-width:0;}
+.wppoppop-st-root .wppoppop-st-val{min-width:42px;font-size:12px;font-weight:600;color:#475569;}
+.wppoppop-st-root .wppoppop-st-range-row .wppoppop-st-val{text-align:right;}
+.wppoppop-st-root select.widefat{margin:0 0 12px;}
+.wppoppop-st-root .wppoppop-st-help{margin:6px 0 0;font-size:11px;color:#64748b;}

@@ -1,0 +1,17 @@
+<div class="wppoppop-qz-root">
+    <label class="wppoppop-qz-check"><input type="checkbox" id="set-quiz-enable" value="1"> Enable Lead Scoring</label>
+    <label class="wppoppop-qz-lbl" for="set-quiz-pass">Pass Threshold Score</label>
+    <input type="number" id="set-quiz-pass" placeholder="70" class="widefat" min="0" max="100000" step="1">
+    <div class="wppoppop-qz-grid">
+        <div>
+            <label class="wppoppop-qz-lbl" for="set-quiz-pass-canvas">Pass Canvas</label>
+            <input type="number" id="set-quiz-pass-canvas" class="widefat" min="1" max="99" step="1">
+        </div>
+        <div>
+            <label class="wppoppop-qz-lbl" for="set-quiz-fail-canvas">Fail Canvas</label>
+            <input type="number" id="set-quiz-fail-canvas" class="widefat" min="1" max="99" step="1">
+        </div>
+    </div>
+    <label class="wppoppop-qz-check"><input type="checkbox" id="set-quiz-confetti" value="1"> Trigger Particle Confetti on Pass</label>
+    <p class="description wppoppop-qz-help">Give each Radio choice points by writing it as Label|value:points, for example Yes|yes:10. The points of the chosen answers are added up. The Next button of the last question canvas opens the Pass Canvas when the total reaches the threshold, otherwise the Fail Canvas. The total is saved with the submission. Confetti needs the Canvas Confetti library to be enabled.</p>
+</div>

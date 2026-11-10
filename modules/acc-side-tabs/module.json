@@ -1,0 +1,22 @@
+{
+    "schema": 1,
+    "slug": "acc-side-tabs",
+    "name": "Side Tabs",
+    "version": "1.1.2",
+    "author": "WpPopPop",
+    "description": "Sticky side tabs attached to the screen edge, with icon, colour, corner radius and slide-in animation.",
+    "category": "all-modules",
+    "default_active": true,
+    "order": 50,
+    "on_missing": "skip",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "sidetab"
+    ],
+    "in_use": [
+        "sidetab.enable"
+    ],
+    "min_version": "",
+    "deprecated": false
+}

@@ -1,0 +1,22 @@
+{
+    "schema": 1,
+    "slug": "acc-math",
+    "name": "Conditional Logic & Math",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Real-time math formulas for form fields: the result is shown while the visitor types.",
+    "category": "all-modules",
+    "default_active": false,
+    "order": 40,
+    "on_missing": "skip",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "logic_math"
+    ],
+    "in_use": [
+        "logic_math.formula"
+    ],
+    "min_version": "",
+    "deprecated": false
+}

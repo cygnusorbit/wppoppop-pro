@@ -1,0 +1,22 @@
+{
+    "schema": 1,
+    "slug": "acc-double-optin",
+    "name": "Double Opt-In",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Double opt-in confirmation for subscribers.",
+    "category": "all-modules",
+    "default_active": true,
+    "order": 180,
+    "on_missing": "block",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "double_optin"
+    ],
+    "in_use": [
+        "double_optin.enable"
+    ],
+    "min_version": "",
+    "deprecated": false
+}

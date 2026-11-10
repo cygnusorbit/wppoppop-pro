@@ -1,0 +1,22 @@
+{
+    "schema": 1,
+    "slug": "acc-targeting",
+    "name": "Targeting",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Visitor authentication, targeting and attribution rules.",
+    "category": "all-modules",
+    "default_active": false,
+    "order": 120,
+    "on_missing": "skip",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "targeting"
+    ],
+    "in_use": [
+        "targeting.auth"
+    ],
+    "min_version": "",
+    "deprecated": false
+}

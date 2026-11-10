@@ -1,0 +1,65 @@
+<div class="wppoppop-ov-enable-row wppoppop-ovm-enable">
+    <label for="set-ov-enable" class="wppoppop-ovm-enable-label">Enable Overlay</label>
+    <span class="wppoppop-ovm-sw">
+        <input type="checkbox" id="set-ov-enable" value="1" title="Show the overlay behind the popup" checked>
+        <span class="wppoppop-ovm-track"></span>
+    </span>
+</div>
+
+<label for="set-ov-opacity" class="wppoppop-ovm-label">Background Overlay Opacity</label>
+<div class="wppoppop-ovm-range-row">
+    <input type="range" id="set-ov-opacity" min="0" max="100" step="1" value="65">
+    <span id="set-ov-opacity-val" class="wppoppop-ovm-val">65%</span>
+</div>
+
+<label for="set-ov-color" class="wppoppop-ovm-label">Overlay Color</label>
+<div class="wppoppop-ovm-color-row">
+    <input type="color" id="set-ov-color" value="#0f172a">
+</div>
+
+<div class="wppoppop-ovm-custom">
+    <div class="wppoppop-ovm-custom-head">
+        <strong>Custom Background</strong>
+        <button type="button" id="set-ov-bg-add" class="button button-secondary wppoppop-ovm-btn">+ Add</button>
+    </div>
+
+    <div id="set-ov-bg-list" class="wppoppop-ovm-list"></div>
+    <div id="set-ov-bg-pager" class="wppoppop-ovm-pager"></div>
+
+    <div id="set-ov-bg-editor" class="wppoppop-ovm-editor">
+        <label for="set-ov-bg-name" class="wppoppop-ovm-sublabel">Name</label>
+        <input type="text" id="set-ov-bg-name" class="widefat wppoppop-ovm-gap" placeholder="e.g. Winter Snow">
+
+        <label for="set-ov-bg-type" class="wppoppop-ovm-sublabel">Background Type</label>
+        <select id="set-ov-bg-type" class="widefat wppoppop-ovm-gap">
+            <option value="image">Picture (JPEG / PNG)</option>
+            <option value="animation">Animation (HTML / JS)</option>
+        </select>
+
+        <label for="set-ov-bg-opacity" class="wppoppop-ovm-sublabel">Background Opacity (picture / animation)</label>
+        <div class="wppoppop-ovm-range-row wppoppop-ovm-range-tight">
+            <input type="range" id="set-ov-bg-opacity" min="0" max="100" step="1" value="100">
+            <span id="set-ov-bg-opacity-val" class="wppoppop-ovm-val">100%</span>
+        </div>
+
+        <div id="set-ov-bg-img-wrap">
+            <label for="set-ov-bg-url" class="wppoppop-ovm-sublabel">Image URL</label>
+            <div class="wppoppop-ovm-url-row">
+                <input type="url" id="set-ov-bg-url" class="widefat" placeholder="https://.../image.jpg">
+                <button type="button" id="set-ov-bg-media" class="button button-secondary wppoppop-ovm-btn wppoppop-ovm-nowrap">Media</button>
+            </div>
+            <div id="set-ov-bg-preview" class="wppoppop-ovm-preview"></div>
+        </div>
+
+        <div id="set-ov-bg-anim-wrap" class="wppoppop-ovm-anim">
+            <label for="set-ov-bg-html" class="wppoppop-ovm-sublabel">HTML / CSS / JS</label>
+            <textarea id="set-ov-bg-html" rows="8" class="widefat wppoppop-ovm-code" placeholder="&lt;canvas id=&quot;c&quot;&gt;&lt;/canvas&gt;&lt;script&gt;...&lt;/script&gt;"></textarea>
+            <p class="wppoppop-ovm-help">Runs in a sandboxed frame behind the popup. Scripts require the unfiltered_html capability (administrators on single-site installs).</p>
+        </div>
+
+        <div class="wppoppop-ovm-actions">
+            <button type="button" id="set-ov-bg-apply" class="button button-primary wppoppop-ovm-btn">Apply</button>
+            <button type="button" id="set-ov-bg-cancel" class="button button-secondary wppoppop-ovm-btn">Cancel</button>
+        </div>
+    </div>
+</div>

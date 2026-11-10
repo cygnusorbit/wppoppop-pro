@@ -1,0 +1,13 @@
+<div class="wppoppop-fq-root">
+    <label class="wppoppop-fq-lbl" for="set-freq-mode">Show Frequency</label>
+    <select id="set-freq-mode" class="widefat">
+        <option value="always">Always Display</option>
+        <option value="session">Once Per Browser Session</option>
+        <option value="days">Once Every X Days</option>
+    </select>
+    <div id="wppoppop-fq-days-row" class="wppoppop-fq-days">
+        <label class="wppoppop-fq-lbl" for="set-freq-days">Days Before It Shows Again</label>
+        <input type="number" id="set-freq-days" class="widefat" min="1" max="365" step="1" placeholder="7">
+    </div>
+    <p class="description wppoppop-fq-help">Applies after a visitor closes the popup. Always Display shows it again on the next page view, Once Per Browser Session hides it until the browser session ends, Once Every X Days hides it for that many days. Resetting the cookie epoch in Tools shows it again for everyone.</p>
+</div>

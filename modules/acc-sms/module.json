@@ -1,0 +1,20 @@
+{
+    "schema": 1,
+    "slug": "acc-sms",
+    "name": "SMS",
+    "version": "1.0.1",
+    "author": "WpPopPop",
+    "description": "Twilio SMS alerts for new submissions.",
+    "category": "all-modules",
+    "default_active": false,
+    "order": 110,
+    "on_missing": "skip",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "sms"
+    ],
+    "in_use": [],
+    "min_version": "",
+    "deprecated": false
+}

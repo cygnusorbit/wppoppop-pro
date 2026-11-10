@@ -1,0 +1,22 @@
+{
+    "schema": 1,
+    "slug": "acc-woocommerce",
+    "name": "WooCommerce",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Create a unique WooCommerce discount coupon for every new subscriber.",
+    "category": "all-modules",
+    "default_active": false,
+    "order": 140,
+    "on_missing": "skip",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "woocommerce"
+    ],
+    "in_use": [
+        "woocommerce.coupon"
+    ],
+    "min_version": "",
+    "deprecated": false
+}

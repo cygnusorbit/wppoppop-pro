@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "slug": "acc-custom-code",
+    "name": "Custom Code",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Custom CSS and JS scoped to the popup.",
+    "category": "all-modules",
+    "default_active": false,
+    "order": 150,
+    "on_missing": "skip",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "custom_code"
+    ],
+    "in_use": [
+        "custom_code.css",
+        "custom_code.js"
+    ],
+    "min_version": "",
+    "deprecated": false
+}

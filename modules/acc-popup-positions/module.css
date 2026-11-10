@@ -1,0 +1,24 @@
+.wppoppop-ppm-label{display:block;font-size:11px;font-weight:700;color:#475569;text-transform:uppercase;}
+.wppoppop-pp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 8px}
+.wppoppop-pp-cell{display:block;margin:0;padding:0;border:0;background:transparent;cursor:pointer;line-height:0;border-radius:8px;-webkit-appearance:none;-moz-appearance:none;appearance:none}
+.wppoppop-pp-cell svg{display:block;width:100%;height:auto;overflow:visible}
+.wppoppop-pp-cell .pp-screen{fill:#fff;stroke:#cbd5e1;stroke-width:1.5;-webkit-transition:stroke .12s,fill .12s;transition:stroke .12s,fill .12s}
+.wppoppop-pp-cell .pp-box{fill:#f8fafc;stroke:#cbd5e1;stroke-width:1.5;-webkit-transition:stroke .12s,fill .12s;transition:stroke .12s,fill .12s}
+.wppoppop-pp-cell:hover .pp-screen,.wppoppop-pp-cell:focus .pp-screen{stroke:#e5a4bb;fill:#fff7fa}
+.wppoppop-pp-cell:hover .pp-box,.wppoppop-pp-cell:focus .pp-box{stroke:#be4a6f;fill:#fde8ef}
+.wppoppop-pp-cell.is-selected .pp-screen{stroke:#b4234f;fill:#fff}
+.wppoppop-pp-cell.is-selected .pp-box{stroke:#b4234f;fill:#fde8ef}
+.wppoppop-pp-cell:focus{outline:none}
+.wppoppop-pp-cell:focus-visible{outline:2px solid #2271b1;outline-offset:2px}
+.wppoppop-pp-name{font-size:12px;font-weight:600;color:#334155;margin:0 0 12px;min-height:16px}
+.wppoppop-ppm-edge-box{border-top:1px solid #e2e8f0;padding-top:12px;}
+.wppoppop-ppm-edge-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.wppoppop-ppm-edge-head strong{font-size:11px;color:#475569;text-transform:uppercase;}
+.wppoppop-ppm-edge-btn{display:inline-flex;align-items:center;justify-content:center;padding:0 4px;min-height:24px;line-height:1;}
+.wppoppop-ppm-edge-btn .dashicons{font-size:16px;width:16px;height:16px;}
+.wppoppop-pp-pads{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;margin:4px 0 8px}
+.wppoppop-pp-pads label{display:block;font-size:11px;font-weight:600;color:#475569;margin:0 0 2px}
+.wppoppop-pp-pad{display:flex;align-items:center;gap:4px}
+.wppoppop-pp-pad input{width:100%;min-width:0}
+.wppoppop-pp-pad span{font-size:11px;color:#64748b}
+.wppoppop-ppm-help{font-size:11px;color:#64748b;margin:0;}

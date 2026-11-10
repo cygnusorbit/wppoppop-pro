@@ -1,0 +1,22 @@
+{
+    "schema": 1,
+    "slug": "acc-webhooks",
+    "name": "Webhooks",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Send submissions to external marketing tools through a webhook URL.",
+    "category": "all-modules",
+    "default_active": false,
+    "order": 100,
+    "on_missing": "skip",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "webhooks"
+    ],
+    "in_use": [
+        "webhooks.url"
+    ],
+    "min_version": "",
+    "deprecated": false
+}

@@ -1,0 +1,20 @@
+{
+    "schema": 1,
+    "slug": "acc-video",
+    "name": "Video",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Video playback listeners: open the popup while a video on the page plays.",
+    "category": "all-modules",
+    "default_active": false,
+    "order": 80,
+    "on_missing": "skip",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "video"
+    ],
+    "in_use": [],
+    "min_version": "",
+    "deprecated": false
+}

@@ -1,0 +1,22 @@
+{
+    "schema": 1,
+    "slug": "acc-payments",
+    "name": "Payments",
+    "version": "1.0.0",
+    "author": "WpPopPop",
+    "description": "Payment gateway and amount settings for checkout inside the popup.",
+    "category": "all-modules",
+    "default_active": false,
+    "order": 60,
+    "on_missing": "block",
+    "requires": [],
+    "accordion": "accordion.html",
+    "data_keys": [
+        "payments"
+    ],
+    "in_use": [
+        "payments.amount"
+    ],
+    "min_version": "",
+    "deprecated": false
+}
