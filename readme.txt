@@ -5,7 +5,7 @@ Tags: popup, modal, popup builder, optin, lead generation
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.005
+Stable tag: 1.0.006
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,9 +56,16 @@ WpPopPop Pro communicates with external services only when the site administrato
 * **YouTube / Vimeo** - used only when a video element is placed in a popup. YouTube: https://policies.google.com/privacy - Vimeo: https://vimeo.com/privacy
 * **Webhooks** - used only when a webhook URL is configured. Sends the submission payload to that destination URL.
 
+== Third-party libraries ==
+
+* canvas-confetti 1.9.2 - ISC - https://github.com/catdad/canvas-confetti (bundled in `assets/lib/`).
+* fireworks-js 2.10.7 - MIT - https://github.com/crashmax-dev/fireworks-js (bundled in `assets/lib/`).
+* signature_pad 4.1.7 - MIT - https://github.com/szimek/signature_pad (bundled in `assets/lib/`).
+* expr-eval 2.0.2 - MIT - https://github.com/silentmatt/expr-eval (bundled in `assets/lib/`).
+
 == Changelog ==
 
-= 1.0.005 =
+= 1.0.006 =
 * Fixed stats reporting and submission export routines.
 * Enhanced campaign A/B testing lifecycle hooks.
 * Added premium builder elements and extended module integration.

@@ -48,7 +48,7 @@ class WpPopPop_Pro_Plugin {
         self::$core_ok = true;
 
         foreach (array('class-pro-gate.php', 'class-pro-settings.php', 'ab/class-admin-ab-query.php', 'ab/class-front-ab.php',
-                       'ab/class-ajax-campaigns.php', 'ab/class-pro-ab.php', 'stats/class-admin-stats.php', 'stats/class-pro-stats.php', 'elements/class-pro-elements.php', 'modules/class-pro-modules.php', 'modules/class-pro-pipeline.php') as $file) {
+                       'ab/class-ajax-campaigns.php', 'ab/class-pro-ab.php', 'stats/class-admin-stats.php', 'stats/class-pro-stats.php', 'elements/class-pro-elements.php', 'modules/class-pro-modules.php', 'modules/class-pro-pipeline.php', 'class-pro-extensions.php', 'class-pro-protection.php') as $file) {
             require_once WPPOPPOP_PRO_PATH . 'includes/' . $file;
         }
         WpPopPop_Pro_Settings::hooks();
@@ -57,6 +57,8 @@ class WpPopPop_Pro_Plugin {
         WpPopPop_Pro_Elements::boot();
         WpPopPop_Pro_Modules::boot();
         WpPopPop_Pro_Pipeline::boot();
+        WpPopPop_Pro_Extensions::hooks();
+        WpPopPop_Pro_Protection::hooks();
 
         if (is_admin()) {
             WpPopPop_Pro_Admin::hooks();
