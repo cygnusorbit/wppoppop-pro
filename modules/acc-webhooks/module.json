@@ -11,6 +11,8 @@
     "on_missing": "skip",
     "requires": [],
     "accordion": "accordion.html",
+    "allow_edit": true,
+	"allow_delete": false,
     "data_keys": [
         "webhooks"
     ],

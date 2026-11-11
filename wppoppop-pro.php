@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: WpPopPop Pro
- * Plugin URI: https://github.com/cygnusorbit/wppoppop
+ * Plugin URI: https://wppoppop.com/
  * Description: Pro add-on for WpPopPop: extra builder elements, modules, templates, A/B Campaigns and Statistics.
- * Version: 1.0.007
+ * Version: 1.0.008
  * Requires at least: 5.8
  * Requires PHP: 7.4
- * Author: cygnusorbit
- * Author URI: https://github.com/cygnusorbit
+ * Author: WpPopPop
+ * Author URI: 
  * License: GPL-2.0+
  * Text Domain: wppoppop-pro
  */
@@ -20,7 +20,7 @@ if (defined('WPPOPPOP_PRO_VERSION')) {
     return;
 }
 
-define('WPPOPPOP_PRO_VERSION', '1.0.007');
+define('WPPOPPOP_PRO_VERSION', '1.0.008');
 define('WPPOPPOP_PRO_FILE', __FILE__);
 define('WPPOPPOP_PRO_PATH', plugin_dir_path(__FILE__));
 define('WPPOPPOP_PRO_URL', plugin_dir_url(__FILE__));
