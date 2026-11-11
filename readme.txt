@@ -5,7 +5,7 @@ Tags: popup, modal, popup builder, optin, lead generation
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.006
+Stable tag: 1.0.007
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,7 +65,7 @@ WpPopPop Pro communicates with external services only when the site administrato
 
 == Changelog ==
 
-= 1.0.006 =
+= 1.0.007 =
 * Fixed stats reporting and submission export routines.
 * Enhanced campaign A/B testing lifecycle hooks.
 * Added premium builder elements and extended module integration.
