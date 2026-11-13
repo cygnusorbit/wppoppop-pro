@@ -78,15 +78,34 @@ class WpPopPop_Autoresponder {
         return WpPopPop_Admin_Settings::module_enabled(self::MODULE_KEY);
     }
 
+    /** WPPOPPOP_AUTO_MERGE: replaces {{tag}} and the older {tag} placeholders; unknown {{tag}} become empty, unknown {tag} stay as typed. */
+    public static function merge($tpl, $vars) {
+        return preg_replace_callback('/\{\{\s*([A-Za-z0-9_\-]+)\s*\}\}|\{([A-Za-z0-9_\-]+)\}/', function ($m) use ($vars) {
+            if (isset($m[2]) && $m[2] !== '') {
+                $k = strtolower($m[2]);
+                return isset($vars[$k]) ? $vars[$k] : $m[0];
+            }
+            $k = strtolower($m[1]);
+            return isset($vars[$k]) ? $vars[$k] : '';
+        }, (string) $tpl);
+    }
+
     /** Send the welcome email to the subscriber. {email} and {field} tokens are replaced; output is escaped. */
     public static function send($email, $fields, $cfg) {
         $subject = ($cfg['subject'] !== '') ? $cfg['subject'] : __('Welcome! Here is your reward', 'wppoppop');
         $body    = ($cfg['body'] !== '') ? $cfg['body'] : __("Thank you for subscribing!\n\nEnjoy your offer.", 'wppoppop');
-        $body    = str_replace('{email}', $email, $body);
+        /* WPPOPPOP_AUTO_VARS */
+        $vars = array();
         foreach ((array) $fields as $k => $v) {
-            $val  = is_array($v) ? implode(', ', array_map('strval', $v)) : (string) $v;
-            $body = str_replace('{' . $k . '}', $val, $body);
+            $ck = sanitize_key($k);
+            if ($ck !== '') {
+                $vars[$ck] = is_array($v) ? implode(', ', array_map('strval', $v)) : (string) $v;
+            }
         }
+        $vars['email']     = (string) $email;
+        $vars['site-name'] = get_bloginfo('name');
+        $subject = self::merge($subject, $vars);
+        $body    = self::merge($body, $vars);
         $mail = array(
             'to'      => $email,
             'subject' => $subject,

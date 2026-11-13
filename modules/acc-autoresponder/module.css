@@ -3,3 +3,6 @@
 .wppoppop-auto-root input.widefat{margin:0 0 10px;}
 .wppoppop-auto-root textarea.widefat{margin:0;}
 .wppoppop-auto-root .wppoppop-auto-help{margin:6px 0 0;font-size:11px;color:#64748b;}
+.wppoppop-auto-root .wppoppop-auto-lblrow{position:relative;display:flex;align-items:center;gap:6px;margin:0 0 4px;}
+.wppoppop-auto-root .wppoppop-auto-lblrow .wppoppop-auto-lbl{margin:0;}
+.wppoppop-auto-root .wppoppop-auto-check label:not(.wppoppop-toggle-switch){margin:0;cursor:pointer;}

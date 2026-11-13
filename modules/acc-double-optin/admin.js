@@ -38,7 +38,26 @@
     var touched = false;
 
     /* The accordion HTML is sanitised (no data-*, aria-*, style), so the merge-tag buttons are added here. */
+    /* WPPOPPOP_DOPT_SWITCH: the enable check is a slide toggle (also upgrades markup that still has the plain checkbox) */
+    function ensureSwitch() {
+        var $c = $('#set-dopt-enable');
+        if (!$c.length) return;
+        var $p = $c.parent();
+        if ($p.is('label.wppoppop-dopt-check')) {
+            var txt = $.trim($p.text()) || 'Enable Double Opt-In';
+            $c.detach();
+            var $sw = $('<label class="wppoppop-toggle-switch"></label>').append($c, '<span class="wppoppop-toggle-slider"></span>');
+            $p.replaceWith($('<div class="wppoppop-dopt-check"></div>').append($sw, $('<label></label>').attr('for', 'set-dopt-enable').text(txt)));
+        } else if (!$p.hasClass('wppoppop-toggle-switch')) {
+            $c.wrap('<label class="wppoppop-toggle-switch"></label>');
+            $c.after('<span class="wppoppop-toggle-slider"></span>');
+        } else if (!$p.find('.wppoppop-toggle-slider').length) {
+            $p.append('<span class="wppoppop-toggle-slider"></span>');
+        }
+    }
+
     function injectTags() {
+        ensureSwitch();
         $('.wppoppop-dopt-lblrow.wppoppop-dopt-hastag').each(function() {
             var $r = $(this);
             var f = $r.find('label').attr('for');
@@ -155,7 +174,7 @@
                     var t = el && (el.field_name || el.fieldName || el.fieldId);
                     if (!t || seen[t]) return;
                     seen[t] = true;
-                    out.push([String(t) + ' | ' + (el.type || 'field'), '{{' + t + '}}']);
+                    out.push([String(typeof el.name === 'string' && el.name ? el.name : t) + ' | ' + (el.type || 'field'), '{{' + t + '}}']);
                 });
             });
         }
@@ -180,8 +199,8 @@
         close();
         $btn = $b;
         $b.attr('aria-expanded', 'true');
-        var forms = tokens().concat([['email', '{{email}}']]);
-        var gen = [['Confirmation URL', '{{confirmation-url}}'], ['Global from email', '{{global-from-email}}'], ['Global from name', '{{global-from-name}}'], ['Site name', '{{site-name}}']];
+        var forms = tokens().concat([['email', '{{email}}'], ['All form data', '{{form-data}}']]);
+        var gen = [['Confirmation URL', '{{confirmation-url}}'], ['Popup name', '{{form-name}}'], ['Submission ID', '{{submission-id}}'], ['Global from email', '{{global-from-email}}'], ['Global from name', '{{global-from-name}}'], ['Site name', '{{site-name}}']];
         $menu = $('<div class="wppoppop-dopt-tag-menu" role="menu"></div>').css({
             position: 'absolute', top: '100%', right: 0, left: 'auto', zIndex: 50, minWidth: '190px', maxHeight: '220px',
             overflowY: 'auto', background: '#fff', border: '1px solid #cbd5e1', borderRadius: '0px',

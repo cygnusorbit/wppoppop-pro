@@ -9,6 +9,8 @@ if (!defined('ABSPATH')) {
  */
 class WpPopPop_Double_Optin {
 
+    const MODULE_KEY = 'acc-double-optin';
+
     public static function defaults() {
         return array(
             'enable'        => false,
@@ -26,6 +28,56 @@ class WpPopPop_Double_Optin {
         $s = (is_array($config) && isset($config['settings']) && is_array($config['settings'])) ? $config['settings'] : array();
         $d = (isset($s['double_optin']) && is_array($s['double_optin'])) ? $s['double_optin'] : array();
         return array_merge(self::defaults(), $d);
+    }
+
+    /** WPPOPPOP_DOPT_MODULE: Settings > Modules switch. A module that is switched off or deleted never affects the front end. */
+    public static function module_active() {
+        if (!class_exists('WpPopPop_Modules')) {
+            return true;
+        }
+        if (!WpPopPop_Modules::get(self::MODULE_KEY)) {
+            $orphans = WpPopPop_Modules::orphans();
+            return !isset($orphans[self::MODULE_KEY]);
+        }
+        if (!class_exists('WpPopPop_Admin_Settings')) {
+            require_once WPPOPPOP_PATH . 'includes/admin/class-admin-settings.php';
+        }
+        return WpPopPop_Admin_Settings::module_enabled(self::MODULE_KEY);
+    }
+
+    /** Title and decoded config of a popup ({{form-name}} and the Layer Names of {{form-data}}). */
+    private static function popup_row($uid) {
+        global $wpdb;
+        $out = array('title' => '', 'config' => array());
+        if (!is_string($uid) || $uid === '') {
+            return $out;
+        }
+        /* phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- table name is built from $wpdb->prefix and every value is prepared */ $row = $wpdb->get_row($wpdb->prepare("SELECT title, data FROM {$wpdb->prefix}wppoppop_items WHERE uid = %s", $uid), ARRAY_A);
+        if (is_array($row)) {
+            $out['title'] = (string) $row['title'];
+            $cfg = json_decode((string) $row['data'], true);
+            $out['config'] = is_array($cfg) ? $cfg : array();
+        }
+        return $out;
+    }
+
+    /** {{form-data}} rows labelled with the Layer Name (falls back to the field key): array(html table, plain text). */
+    private static function form_rows($fields, $config) {
+        $labels = is_callable(array('WpPopPop_Notifications', 'field_labels')) ? WpPopPop_Notifications::field_labels($config) : array();
+        if (!is_array($labels)) {
+            $labels = array();
+        }
+        $html = '';
+        $text = '';
+        foreach (self::flat($fields) as $k => $v) {
+            if ($k === '_name' || $k === '_phone' || $k === '_ip' || $k === '_ua' || substr((string) $k, -5) === '_path') {
+                continue;
+            }
+            $label = (isset($labels[$k]) && is_string($labels[$k]) && $labels[$k] !== '') ? $labels[$k] : $k;
+            $html .= '<tr><td style="padding:4px 10px;border:1px solid #e2e8f0;"><strong>' . esc_html($label) . '</strong></td><td style="padding:4px 10px;border:1px solid #e2e8f0;">' . esc_html($v) . '</td></tr>';
+            $text .= $label . ': ' . $v . "\n";
+        }
+        return array($html === '' ? '' : '<table style="border-collapse:collapse;">' . $html . '</table>', trim($text));
     }
 
     /** Replace {{tag}} placeholders. Unknown tags become empty. */
@@ -58,7 +110,12 @@ class WpPopPop_Double_Optin {
         list($g_email, $g_name) = self::global_sender();
         $confirm_url = add_query_arg('wppoppop_confirm', rawurlencode($token), home_url('/'));
 
+        $wppoppop_row  = self::popup_row($uid);
+        $wppoppop_rows = self::form_rows($fields, $wppoppop_row['config']);
         $plain = array_merge(self::flat($fields), array(
+            'form-name'         => (string) $wppoppop_row['title'],
+            'submission-id'     => (string) $submission_id,
+            'form-data'         => $wppoppop_rows[1],
             'email'             => (string) $email,
             'site-name'         => get_bloginfo('name'),
             'global-from-email' => (string) $g_email,
@@ -67,6 +124,7 @@ class WpPopPop_Double_Optin {
         ));
         $html = array_map('esc_html', $plain);
         $html['confirmation-url'] = esc_url($confirm_url);
+        $html['form-data'] = $wppoppop_rows[0];
 
         $to_raw = trim((string) self::merge($cfg['recipient'], $plain));
         $to = array();

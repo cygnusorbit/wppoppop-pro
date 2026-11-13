@@ -37,6 +37,7 @@ class WpPopPop_Pro_Pipeline {
         add_filter('wppoppop_confirmation_thank', array(__CLASS__, 'confirmation_thank'), 10, 3);
         add_action('wppoppop_after_confirmation', array(__CLASS__, 'after_confirmation'));
         add_filter('wppoppop_resend_user_email', array(__CLASS__, 'resend_user_email'), 10, 5);
+        add_filter('wppoppop_email_modules_active', array(__CLASS__, 'email_modules_active'), 10, 2);
 
         add_filter('wppoppop_notification_tech_rows', array(__CLASS__, 'notification_tech_rows'), 10, 3);
         add_filter('wppoppop_submission_record_fields', array(__CLASS__, 'record_fields'), 10, 2);
@@ -158,7 +159,7 @@ class WpPopPop_Pro_Pipeline {
         $cfg   = WpPopPop_Double_Optin::get_config($config);
         $notif = (is_array($config) && isset($config['notifications']) && is_array($config['notifications'])) ? $config['notifications'] : array();
         return array(
-            'active' => !empty($cfg['enable']) || !empty($notif['enable_double_optin']),
+            'active' => (!empty($cfg['enable']) || !empty($notif['enable_double_optin'])) && WpPopPop_Double_Optin::module_active(),
             'cfg'    => $cfg,
         );
     }
@@ -222,6 +223,11 @@ class WpPopPop_Pro_Pipeline {
     }
 
     public static function after_confirmation($ctx) {
+        /* WPPOPPOP_AUTO_CONFIRMED: with Double Opt-In the Autoresponder is sent once the link is confirmed */
+        $ar = WpPopPop_Autoresponder::get_config($ctx['config']);
+        if (!empty($ar['enable']) && $ctx['email'] !== '' && is_email($ctx['email']) && WpPopPop_Autoresponder::module_active()) {
+            WpPopPop_Autoresponder::send($ctx['email'], $ctx['fields'], $ar);
+        }
         foreach (array('WpPopPop_Mailchimp', 'WpPopPop_Getresponse') as $class) {
             if (call_user_func(array($class, 'module_active'))) {
                 call_user_func(array($class, 'dispatch'), 'after_confirmation', $ctx['uid'], $ctx['title'], $ctx['config'], $ctx['email'], $ctx['fields'], $ctx['submission_id'], $ctx['country']);
@@ -233,13 +239,26 @@ class WpPopPop_Pro_Pipeline {
     public static function resend_user_email($sent, $sub, $config, $email, $fields) {
         $dopt = WpPopPop_Double_Optin::get_config($config);
         $ar   = WpPopPop_Autoresponder::get_config($config);
-        if ($sub['status'] === 'pending' && !empty($dopt['enable']) && !empty($sub['confirm_token'])) {
+        if ($sub['status'] === 'pending' && !empty($dopt['enable']) && WpPopPop_Double_Optin::module_active() && !empty($sub['confirm_token'])) {
             return (bool) WpPopPop_Double_Optin::send_confirmation($sub['popup_uid'], $dopt, $email, $fields, $sub['confirm_token'], (int) $sub['id']);
         }
         if (!empty($ar['enable']) && WpPopPop_Autoresponder::module_active()) {
             return (bool) WpPopPop_Autoresponder::send($email, $fields, $ar);
         }
         return false;
+    }
+
+    /** The built-in "New Lead Captured" mail is not sent while Double Opt-In or the Autoresponder is in use for the popup. */
+    public static function email_modules_active($on, $config) {
+        if ($on) {
+            return true;
+        }
+        $dopt = WpPopPop_Double_Optin::get_config($config);
+        if (!empty($dopt['enable']) && WpPopPop_Double_Optin::module_active()) {
+            return true;
+        }
+        $ar = WpPopPop_Autoresponder::get_config($config);
+        return !empty($ar['enable']) && WpPopPop_Autoresponder::module_active();
     }
 
     /* ---------------------------------------------------------------- display / privacy */
